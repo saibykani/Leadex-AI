@@ -1,0 +1,28 @@
+# Prometheus alert rules for Leadex AI (load with rule_files: in prometheus.yml).
+groups:
+  - name: leadex-api
+    rules:
+      - alert: LeadexApiDown
+        expr: up{job="leadex-api"} == 0
+        for: 2m
+        labels: { severity: critical }
+        annotations: { summary: "Leadex API is not responding to /metrics scrapes" }
+
+      - alert: LeadexHighErrorRate
+        expr: sum(rate(leadex_http_requests_total{status=~"5.."}[5m])) / sum(rate(leadex_http_requests_total[5m])) > 0.02
+        for: 5m
+        labels: { severity: warning }
+        annotations: { summary: "More than 2% of API requests are failing (5xx)" }
+
+      - alert: LeadexSlowRequests
+        expr: histogram_quantile(0.95, sum by (le) (rate(leadex_http_request_duration_seconds_bucket[5m]))) > 1.5
+        for: 10m
+        labels: { severity: warning }
+        annotations: { summary: "API p95 latency above 1.5 s" }
+
+      - alert: LeadexVoiceTurnsSlow
+        # Live phone turns must answer fast or callers hear silence.
+        expr: histogram_quantile(0.95, sum by (le) (rate(leadex_http_request_duration_seconds_bucket{route="/api/v1/telephony/twilio/turn/{call_id}"}[5m]))) > 4
+        for: 5m
+        labels: { severity: critical }
+        annotations: { summary: "Voice agent replies are slower than 4 s (p95): check the fast LLM endpoint" }

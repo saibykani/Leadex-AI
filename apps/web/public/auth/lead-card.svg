@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150">
+<defs><linearGradient id="av" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff9f0a"/><stop offset="1" stop-color="#ff375f"/></linearGradient>
+<linearGradient id="gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".96"/><stop offset="1" stop-color="#fff" stop-opacity=".8"/></linearGradient>
+<linearGradient id="bar" x1="0" x2="1"><stop offset="0" stop-color="#30d158"/><stop offset="1" stop-color="#64d2ff"/></linearGradient></defs>
+<rect x=".5" y=".5" width="299" height="149" rx="22" fill="url(#gl)" stroke="#fff"/>
+<circle cx="44" cy="48" r="22" fill="url(#av)"/><text x="44" y="54" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">SB</text>
+<rect x="78" y="34" width="120" height="11" rx="5.5" fill="#1d1d1f" opacity=".85"/><rect x="78" y="53" width="80" height="8" rx="4" fill="#86868b" opacity=".5"/>
+<rect x="222" y="34" width="56" height="22" rx="11" fill="#30d158" opacity=".15"/><circle cx="234" cy="45" r="4" fill="#30d158"/><rect x="242" y="41" width="28" height="8" rx="4" fill="#30d158" opacity=".7"/>
+<rect x="22" y="92" width="256" height="8" rx="4" fill="#e5e5ea"/><rect x="22" y="92" width="190" height="8" rx="4" fill="url(#bar)"/>
+<rect x="22" y="114" width="60" height="18" rx="9" fill="#0a84ff" opacity=".14"/><rect x="90" y="114" width="70" height="18" rx="9" fill="#bf5af2" opacity=".14"/><rect x="168" y="114" width="50" height="18" rx="9" fill="#ff9f0a" opacity=".16"/>
+</svg>

@@ -1,0 +1,9 @@
+{
+  "identities": [
+    {
+      "name": "leadex-local",
+      "credentials": [{ "accessKey": "leadexs3", "secretKey": "leadexs3-local-secret" }],
+      "actions": ["Admin", "Read", "Write", "List", "Tagging"]
+    }
+  ]
+}

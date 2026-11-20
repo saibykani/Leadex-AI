@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" preserveAspectRatio="xMidYMid slice">
+<defs>
+<radialGradient id="a" cx=".2" cy=".2" r=".6"><stop offset="0" stop-color="#0a84ff"/><stop offset="1" stop-color="#0a84ff" stop-opacity="0"/></radialGradient>
+<radialGradient id="b" cx=".85" cy=".3" r=".55"><stop offset="0" stop-color="#bf5af2"/><stop offset="1" stop-color="#bf5af2" stop-opacity="0"/></radialGradient>
+<radialGradient id="c" cx=".7" cy=".9" r=".6"><stop offset="0" stop-color="#ff375f"/><stop offset="1" stop-color="#ff375f" stop-opacity="0"/></radialGradient>
+<radialGradient id="d" cx=".15" cy=".85" r=".5"><stop offset="0" stop-color="#64d2ff"/><stop offset="1" stop-color="#64d2ff" stop-opacity="0"/></radialGradient>
+<radialGradient id="e" cx=".5" cy=".55" r=".4"><stop offset="0" stop-color="#ff9f0a" stop-opacity=".7"/><stop offset="1" stop-color="#ff9f0a" stop-opacity="0"/></radialGradient>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .06 0"/></filter>
+<pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" fill="none" stroke="#fff" stroke-opacity=".06"/></pattern>
+</defs>
+<rect width="800" height="1000" fill="#1b1464"/>
+<rect width="800" height="1000" fill="url(#a)"/><rect width="800" height="1000" fill="url(#b)"/>
+<rect width="800" height="1000" fill="url(#c)"/><rect width="800" height="1000" fill="url(#d)"/><rect width="800" height="1000" fill="url(#e)"/>
+<rect width="800" height="1000" fill="url(#g)"/><rect width="800" height="1000" filter="url(#n)"/>
+</svg>

@@ -1,0 +1,18 @@
+[project]
+name = "leadex-api"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "S"]
+ignore = ["B008", "S101", "S105", "S106"]  # FastAPI Depends defaults; asserts/test secrets
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# tests/e2e drives the live Docker stack with Playwright; run it explicitly: pytest tests/e2e
+norecursedirs = [".*", "*.egg", "build", "dist", "venv", ".venv", "node_modules", "__pycache__", "e2e", "load"]
+markers = ["e2e: live-stack browser test (excluded from the default run)"]

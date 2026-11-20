@@ -1,0 +1,28 @@
+/* Keyframes for the auth experience — transform / opacity / background-position only. */
+@keyframes shimmer { from { transform: translateX(-120%) skewX(-20deg); } to { transform: translateX(320%) skewX(-20deg); } }
+@keyframes ringflow { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+@keyframes ripple { from { transform: translate(-50%, -50%) scale(0); opacity: .45; } to { transform: translate(-50%, -50%) scale(1); opacity: 0; } }
+@keyframes wave { 0%, 100% { transform: scaleY(.35); } 50% { transform: scaleY(1); } }
+
+.shimmer {
+  position: absolute; inset: 0 auto 0 0; width: 35%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .45), transparent);
+  animation: shimmer 2.8s cubic-bezier(.4, 0, .2, 1) infinite;
+  pointer-events: none;
+}
+.ring {
+  background: linear-gradient(90deg, #0a84ff, #5e5ce6, #bf5af2, #ff375f, #ff9f0a, #0a84ff);
+  background-size: 200% 100%;
+  animation: ringflow 3s linear infinite;
+}
+.ripple {
+  position: absolute; width: 520px; height: 520px; border-radius: 9999px;
+  background: rgba(255, 255, 255, .7); pointer-events: none;
+  animation: ripple .7s ease-out forwards;
+}
+.bar { transform-origin: center; animation: wave 1.1s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer, .ring, .bar { animation: none; }
+  .ripple { display: none; }
+}

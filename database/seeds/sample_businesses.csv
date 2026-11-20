@@ -1,0 +1,26 @@
+name,industry,category,address,country,state,city,locality,postal_code,phone,email,website,notes
+Fictional Crumb & Co Bakery,Food,Bakery,12 Imaginary Lane,IN,Maharashtra,Pune,Koregaon Park,411001,+91 98765 00001,hello@crumbco.example.com,,FICTIONAL test data - fake phone
+Test Tandoor Junction (Fictional),Food,Restaurant,4 Sample Road,IN,Maharashtra,Pune,Baner,411045,+91 98765 00002,eat@tandoor.example.com,https://tandoor.example.com,FICTIONAL test data - fake phone
+Placeholder Arches Architects,Construction,Architect,88 Demo Street,IN,Maharashtra,Pune,Aundh,411007,+91 98765 00003,studio@arches.example.com,https://arches.example.com,FICTIONAL test data - fake phone
+Mockup Interiors Pune,Design,Interior Designer,3 Fake Plaza,IN,Maharashtra,Pune,Kalyani Nagar,411006,+91 98765 00004,design@mockupint.example.com,,FICTIONAL test data - fake phone
+Sampleville Dental Clinic,Healthcare,Clinic,21 Example Marg,IN,Maharashtra,Pune,Viman Nagar,411014,+91 98765 00005,care@sampledental.example.com,,FICTIONAL test data - fake phone
+Demo Builders & Developers,Construction,Builder,7 Nowhere Chowk,IN,Telangana,Hyderabad,Gachibowli,500032,+91 98765 00006,sales@demobuilders.example.com,https://demobuilders.example.com,FICTIONAL test data - fake phone
+Fictitious Biryani House,Food,Restaurant,15 Test Bazaar,IN,Telangana,Hyderabad,Banjara Hills,500034,+91 98765 00007,orders@fbiryani.example.com,,FICTIONAL test data - fake phone
+Pretend Pastry Studio,Food,Bakery,9 Mock Avenue,IN,Telangana,Hyderabad,Jubilee Hills,500033,+91 98765 00008,cakes@pretendpastry.example.com,,FICTIONAL test data - fake phone
+Imaginary Skin & Care Clinic,Healthcare,Clinic,40 Sample Circle,IN,Telangana,Hyderabad,Madhapur,500081,+91 98765 00009,front@imagskin.example.com,https://imagskin.example.com,FICTIONAL test data - fake phone
+Notreal Space Interiors,Design,Interior Designer,2 Dummy Road,IN,Telangana,Hyderabad,Kondapur,500084,+91 98765 00010,hi@notrealspace.example.com,,FICTIONAL test data - fake phone
+Example Oven Bengaluru,Food,Bakery,61 Test Cross,IN,Karnataka,Bengaluru,Indiranagar,560038,+91 98765 00011,bake@exampleoven.example.com,,FICTIONAL test data - fake phone
+Sandbox Architects Collective,Construction,Architect,5 Demo Layout,IN,Karnataka,Bengaluru,Koramangala,560034,+91 98765 00012,team@sandboxarch.example.com,https://sandboxarch.example.com,FICTIONAL test data - fake phone
+Fauxwell Family Clinic,Healthcare,Clinic,77 Fake Main Road,IN,Karnataka,Bengaluru,Jayanagar,560041,+91 98765 00013,desk@fauxwell.example.com,,FICTIONAL test data - fake phone
+Stub Masala Kitchen,Food,Restaurant,30 Mock Street,IN,Karnataka,Bengaluru,HSR Layout,560102,+91 98765 00014,hello@stubmasala.example.com,,FICTIONAL test data - fake phone
+Dummy Homes Constructions,Construction,Builder,11 Sample Phase,IN,Karnataka,Bengaluru,Whitefield,560066,+91 98765 00015,info@dummyhomes.example.com,https://dummyhomes.example.com,FICTIONAL test data - fake phone
+Mirage Test Bakery Dubai,Food,Bakery,Shop 4 Fictional Tower,AE,Dubai,Dubai,Al Barsha,,+971 50 000 0001,hello@miragebakery.example.com,,FICTIONAL test data - fake phone
+Oasis Placeholder Interiors,Design,Interior Designer,Unit 9 Demo Business Bay,AE,Dubai,Dubai,Business Bay,,+971 50 000 0002,studio@oasisph.example.com,https://oasisph.example.com,FICTIONAL test data - fake phone
+Dune Example Dental,Healthcare,Clinic,Villa 3 Sample Street,AE,Dubai,Dubai,Jumeirah,,+971 50 000 0003,smile@duneexample.example.com,,FICTIONAL test data - fake phone
+Falcon Fake Builders LLC,Construction,Builder,Office 12 Mock Plaza,AE,Dubai,Dubai,Deira,,+971 50 000 0004,projects@falconfake.example.com,,FICTIONAL test data - fake phone
+Saffron Sample Restaurant,Food,Restaurant,8 Test Walk,AE,Dubai,Dubai,Dubai Marina,,+971 50 000 0005,book@saffronsample.example.com,https://saffronsample.example.com,FICTIONAL test data - fake phone
+Thames Pretend Bakehouse,Food,Bakery,14 Imaginary Row,GB,England,London,Camden,NW1 0AA,+44 20 7946 0001,hello@thamespretend.example.com,,FICTIONAL test data - Ofcom drama range phone
+Fictional Foundry Architects,Construction,Architect,22 Sample Mews,GB,England,London,Shoreditch,E1 6AA,+44 20 7946 0002,office@ffarch.example.com,https://ffarch.example.com,FICTIONAL test data - Ofcom drama range phone
+Mock Mayfair Interiors,Design,Interior Designer,5 Example Square,GB,England,London,Mayfair,W1K 1AA,+44 20 7946 0003,design@mockmayfair.example.com,,FICTIONAL test data - Ofcom drama range phone
+Testbridge Physio Clinic,Healthcare,Clinic,31 Dummy Road,GB,England,London,Clapham,SW4 0AA,+44 20 7946 0004,book@testbridge.example.com,,FICTIONAL test data - Ofcom drama range phone
+Placebo Bistro London,Food,Restaurant,9 Demo Lane,GB,England,London,Soho,W1D 1AA,+44 20 7946 0005,table@placebobistro.example.com,https://placebobistro.example.com,FICTIONAL test data - Ofcom drama range phone

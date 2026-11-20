@@ -1,0 +1,71 @@
+# Manual production deploy over SSH.
+# >>> REQUIRES CONFIGURATION before first use <<<
+#   Repository/Environment secrets (Settings > Environments > production):
+#     DEPLOY_HOST        server hostname/IP
+#     DEPLOY_USER        non-root deploy user (member of the docker group)
+#     DEPLOY_SSH_KEY     private key (ed25519) whose public key is in DEPLOY_USER's authorized_keys
+#     DEPLOY_KNOWN_HOSTS output of `ssh-keyscan -t ed25519 <host>` (pins the host key)
+#   Repository variable:
+#     DEPLOY_PATH        checkout path on the server (default /opt/leadex)
+#   Add required reviewers to the `production` environment to gate deploys.
+name: Deploy (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Git tag or commit SHA to deploy (must be pushed to origin)
+        required: true
+        type: string
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 30
+    steps:
+      - name: Check configuration
+        env:
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          if [ -z "$HOST" ] || [ -z "$KEY" ] || [ -z "$KNOWN" ]; then
+            echo "::error::Deploy secrets are not configured (see header of .github/workflows/deploy.yml)"; exit 1
+          fi
+      - name: Set up SSH
+        env:
+          KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/id_deploy && chmod 600 ~/.ssh/id_deploy
+          printf '%s\n' "$KNOWN" > ~/.ssh/known_hosts
+      - name: Deploy
+        env:
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ vars.DEPLOY_PATH || '/opt/leadex' }}
+          REF: ${{ inputs.ref }}
+        run: |
+          case "$REF" in *[!A-Za-z0-9._/-]*) echo "::error::invalid ref"; exit 1;; esac
+          ssh -i ~/.ssh/id_deploy -o StrictHostKeyChecking=yes "$USER@$HOST" \
+            "cd '$DEPLOY_PATH' && infrastructure/scripts/deploy.sh '$REF'"
+      - name: Smoke test
+        env:
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PATH: ${{ vars.DEPLOY_PATH || '/opt/leadex' }}
+        run: |
+          ssh -i ~/.ssh/id_deploy "$USER@$HOST" \
+            "cd '$DEPLOY_PATH' && curl -fsS --max-time 10 https://\$(grep -E '^DOMAIN=' .env.production | cut -d= -f2 | awk '{print \$1}')/health/ready"
+      - name: Clean up key
+        if: always()
+        run: rm -f ~/.ssh/id_deploy
