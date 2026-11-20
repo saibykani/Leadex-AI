@@ -75,11 +75,14 @@ CSRF_HEADER = "x-requested-with"
 def set_refresh_cookie(response: Response, token: str) -> None:
     s = get_settings()
     response.set_cookie(REFRESH_COOKIE, token, max_age=s.refresh_token_days * 86400, httponly=True,
-                        secure=s.is_production, samesite="lax", path=COOKIE_PATH)
+                        secure=s.is_production or s.cookie_samesite == "none", samesite=s.cookie_samesite,
+                        path=COOKIE_PATH)
 
 
 def clear_refresh_cookie(response: Response) -> None:
-    response.delete_cookie(REFRESH_COOKIE, path=COOKIE_PATH)
+    s = get_settings()
+    response.delete_cookie(REFRESH_COOKIE, path=COOKIE_PATH, secure=s.is_production or s.cookie_samesite == "none",
+                           samesite=s.cookie_samesite)
 
 
 def refresh_token_from(request: Request, body_token: str | None) -> str | None:

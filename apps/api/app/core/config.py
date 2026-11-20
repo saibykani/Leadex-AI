@@ -1,4 +1,5 @@
 from functools import lru_cache
+from typing import Literal
 
 from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -28,6 +29,9 @@ class Settings(BaseSettings):
     refresh_token_days: int = 14
     cors_origins: str = "http://localhost:3000"  # comma separated
     auth_rate_limit_per_minute: int = 20
+    # "lax" when web and API share a site (app.x.com + api.x.com); "none" when they are on different sites
+    # (e.g. two *.vercel.app projects). "none" always sends the cookie Secure-only.
+    cookie_samesite: Literal["lax", "strict", "none"] = "lax"
 
     @field_validator("redis_url", "migration_database_url", "encryption_key", mode="before")
     @classmethod
